@@ -15,3 +15,12 @@ services:
     - MAILNAME=example.org
     - MAIL_ADDRESS=address@example.org
     - MAIL_PASS=pass
+  rainloop:
+    image: hardware/rainloop
+    container_name: rainloop
+    ports:
+    - "8888:8888"
+    volumes:
+      - /mnt/docker/rainloop:/rainloop/data
+    depends_on:
+      - imap
